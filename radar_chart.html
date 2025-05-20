@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Радарна діаграма функціональних особливостей</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 2.5em;
+        }
+        .nav {
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 20px;
+        }
+        .nav a {
+            margin-right: 30px;
+            font-size: 1.3em;
+            color: white;
+            text-decoration: none;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .chart-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 120px auto;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 1.2em;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Black-White Angels</div>
+        <nav class="nav">
+            <a href="#dashboard">Панель керування</a>
+            <a href="#content">Контент</a>
+            <a href="#users">Користувачі</a>
+            <a href="#events">Події</a>
+            <a href="#analytics">Аналітика</a>
+        </nav>
+    </header>
+
+    <div class="chart-container">
+        <h1>Функціональні особливості системи адміністратора</h1>
+        <canvas id="radarChart"></canvas>
+    </div>
+
+    <footer class="footer">
+        © 2024 Black-White Angels. Усі права захищено.
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Керування контентом', 'Взаємодія з користувачами', 'Технічне обслуговування', 'Адаптивний дизайн', 'Інтерактивні елементи'],
+                datasets: [{
+                    label: 'Функції системи адміністратора',
+                    data: [8, 7, 6, 8, 7],
+                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                    borderColor: '#ffffff',
+                    pointBackgroundColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        ticks: { beginAtZero: true, max: 10 },
+                        pointLabels: { font: { size: 14 } }
+                    }
+                },
+                elements: {
+                    line: { tension: 0 }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
