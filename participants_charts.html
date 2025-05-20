@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Діаграми учасників Black-White Angels</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 2.5em;
+        }
+        .nav {
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 20px;
+        }
+        .nav a {
+            margin-right: 30px;
+            font-size: 1.3em;
+            color: white;
+            text-decoration: none;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .chart-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 120px auto 50px auto;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 1.2em;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Black-White Angels</div>
+        <nav class="nav">
+            <a href="#dashboard">Панель керування</a>
+            <a href="#content">Контент</a>
+            <a href="#users">Користувачі</a>
+            <a href="#events">Події</a>
+            <a href="#analytics">Аналітика</a>
+        </nav>
+    </header>
+
+    <div class="chart-container">
+        <h1>Кількість учасників за роками приєднання</h1>
+        <canvas id="histogramChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <h1>Розподіл учасників за роками приєднання</h1>
+        <canvas id="pieChart"></canvas>
+    </div>
+
+    <footer class="footer">
+        © 2024 Black-White Angels. Усі права захищено.
+    </footer>
+
+    <script>
+        // Гістограма
+        const histogramCtx = document.getElementById('histogramChart').getContext('2d');
+        new Chart(histogramCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2002', '2021', '2022', '2023', '2024', '2025'],
+                datasets: [{
+                    label: 'Кількість учасників',
+                    data: [5, 12, 7, 25, 26, 10],
+                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                    borderColor: '#ffffff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Кількість учасників',
+                            color: '#ffffff',
+                            font: { size: 14 }
+                        },
+                        ticks: { color: '#ffffff' }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Рік приєднання',
+                            color: '#ffffff',
+                            font: { size: 14 }
+                        },
+                        ticks: { color: '#ffffff' }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: { color: '#ffffff' }
+                    }
+                }
+            }
+        });
+
+        // Кругова діаграма
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        new Chart(pieCtx, {
+            type: 'pie',
+            data: {
+                labels: ['2002', '2021', '2022', '2023', '2024', '2025'],
+                datasets: [{
+                    label: 'Розподіл учасників',
+                    data: [5, 12, 7, 25, 26, 10],
+                    backgroundColor: [
+                        'rgba(255, 255, 255, 0.8)',
+                        'rgba(255, 255, 255, 0.6)',
+                        'rgba(255, 255, 255, 0.4)',
+                        'rgba(255, 255, 255, 0.3)',
+                        'rgba(255, 255, 255, 0.2)',
+                        'rgba(255, 255, 255, 0.1)'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: { color: '#ffffff', font: { size: 14 } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
