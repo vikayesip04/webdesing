@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адмін-панель Black-White Angels</title>
+    <link rel="stylesheet" href="admin_styles.css">
+</head>
+<body>
+    <!-- Блок з фоном -->
+    <section id="background-image">
+        <img src="https://images.unsplash.com/photo-1611416457332-946853cc75d6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bmlnaHQlMjBjaXR5fGVufDB8fDB8fHww" alt="Background Image" />
+    </section>
+    
+    <div id="smoke-effect"></div>
+
+    <header class="header">
+        <div class="logo">Black-White Angels Адмін</div>
+        <nav class="nav">
+            <a href="#dashboard">Панель керування</a>
+            <a href="#content">Контент</a>
+            <a href="#users">Користувачі</a>
+            <a href="#events">Події</a>
+            <a href="#analytics">Аналітика</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="hero-title">Адмін-панель</h1>
+        <p class="hero-text">Керуйте контентом, користувачами та подіями для Black-White Angels.</p>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <h2>Керування контентом</h2>
+            <p>Додавайте або редагуйте альбоми, профілі учасників та мультимедійний контент.</p>
+            <a href="#manage-content" class="hero-btn">Керувати контентом</a>
+        </div>
+        <div class="feature">
+            <h2>Взаємодія з користувачами</h2>
+            <p>Модеруйте коментарі та переглядайте відгуки користувачів.</p>
+            <a href="#view-comments" class="hero-btn">Переглянути коментарі</a>
+        </div>
+        <div class="feature">
+            <h2>Події</h2>
+            <p>Створюйте та керуйте онлайн-подіями для залучення фанатів.</p>
+            <a href="#create-event" class="hero-btn">Створити подію</a>
+        </div>
+    </section>
+
+    <section class="admin-panel">
+        <input type="checkbox" id="toggle-form" class="toggle-form">
+        <label for="toggle-form" class="toggle-btn">Показати форму додавання контенту</label>
+        <form class="content-form" action="#submit-content" method="post">
+            <h3>Додати альбом</h3>
+            <label for="album-title">Назва альбому:</label>
+            <input type="text" id="album-title" name="album-title" placeholder="Введіть назву альбому">
+            <label for="release-year">Рік випуску:</label>
+            <input type="number" id="release-year" name="release-year" placeholder="Введіть рік">
+            <label for="tracklist">Треклист:</label>
+            <textarea id="tracklist" name="tracklist" placeholder="Введіть треклист"></textarea>
+            <button type="submit">Додати альбом</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        © 2024 Black-White Angels. Усі права захищено.
+    </footer>
+</body>
+</html>
